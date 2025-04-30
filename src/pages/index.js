@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import articles from "@/data/articles";
 
 export default function Home() {
@@ -43,25 +44,25 @@ export default function Home() {
     <div className="min-h-screen bg-pink-50 text-gray-800">
       {/* Header */}
       <header className="bg-pink-200 p-6 text-center shadow">
-        <h1 className="text-3xl font-bold">Mother’s Day Tribute Blog</h1>
+        <h1 className="text-3xl font-bold">Mother&rsquo;s Day Tribute Blog</h1>
         <p className="mt-2 text-sm">Celebrating our incredible mothers ❤️</p>
       </header>
 
       {/* Mother's Day Banner Image */}
-<section className="relative h-[400px] overflow-hidden">
-  <img
-    src="/images/mothers-day.png"
-    alt="Mother's Day Banner"
-    className="w-full h-full object-contain opacity-90"
-  />
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-    <h2 className="text-4xl md:text-6xl font-bold">Happy Mother's Day</h2>
-    <p className="mt-4 text-xl">
-      Celebrating the love and strength of every mother
-    </p>
-  </div>
-</section>
-
+      <section className="relative h-[400px] overflow-hidden">
+        <Image 
+          src="/images/mothers-day.png"
+          alt="Mother's Day Banner"
+          fill
+          className="object-contain opacity-90"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+          <h2 className="text-4xl md:text-6xl font-bold">Happy Mother&apos;s Day</h2>
+          <p className="mt-4 text-xl">
+            Celebrating the love and strength of every mother
+          </p>
+        </div>
+      </section>
 
       {/* Hero Section - Featured Stories */}
       <section className="p-6">
@@ -118,10 +119,12 @@ export default function Home() {
                 key={article.id}
                 className="bg-white rounded-lg shadow flex flex-col sm:flex-row overflow-hidden"
               >
-                <img
+                <Image 
                   src={article.thumbnail}
                   alt={article.title}
-                  className="w-full sm:w-40 h-40 object-cover"
+                  width={160}
+                  height={160}
+                  className="object-cover"
                 />
                 <div className="p-4 flex-1">
                   <h3 className="text-lg font-bold mb-1">{article.title}</h3>
